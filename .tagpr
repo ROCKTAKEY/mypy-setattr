@@ -1,0 +1,8 @@
+[tagpr]
+vPrefix = true
+releaseBranch = main
+release = draft
+versionFile = pyproject.toml
+changelog = true
+majorLabels = "tagpr:major"
+minorLabels = "tagpr:minor"

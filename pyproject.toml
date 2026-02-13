@@ -1,0 +1,67 @@
+[project]
+name = "mypy-setattr"
+version = "0.0.0"
+description = "Ensure value of setattr satisfy type of a its target attribute"
+readme = "README.md"
+requires-python = ">=3.12"
+
+[build-system]
+requires = ["uv_build>=0.10.2,<0.11.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.32.1",
+    "coverage[toml]>=7.11.0",
+    "mypy>=1.18.2",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "pytest-xdist>=3.8.0",
+    "ruff",
+    "ty>=0.0.1a24",
+]
+
+[tool.mypy]
+strict = true
+warn_unreachable = true
+mypy_path = "."
+plugins = ["mypy.plugins.proper_plugin", "mypy_setattr.plugin"]
+
+[tool.pyright]
+typeCheckingMode = "strict"
+venvPath  = "."
+venv = ".venv"
+
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "COM812",  # Trailing comma requirement conflicts with formatter output.
+    "D203",    # Blank line before class docstring required; formatter omits it.
+    "D213",    # Multi-line docstring summary on new line; formatter keeps summary inline.
+]
+
+[tool.ruff.lint.per-file-ignores]
+"test_*.py" = [
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+    "INP001",
+    "S101",
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.coverage.run]
+branch = true
+source = ["mypy_setattr"]
+omit = ["src/mypy_setattr/test_*.py"]
