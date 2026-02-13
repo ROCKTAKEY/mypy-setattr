@@ -65,10 +65,8 @@ jobs:
           RELEASE_TAG: ${{ needs.tagpr.outputs.tagpr-tag }}
         run: gh release upload "$RELEASE_TAG" dist/* --clobber
 
-      - name: Publish package distributions to TestPyPI
+      - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          repository-url: https://test.pypi.org/legacy/
 
       - name: Publish GitHub Release
         env:
