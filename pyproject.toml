@@ -4,9 +4,35 @@ version = "0.1.1"
 description = "Ensure value of setattr satisfy type of a its target attribute"
 readme = "README.md"
 requires-python = ">=3.12"
+license = "AGPL-3.0-only"
+license-files = ["LICENSE"]
+authors = [
+    { name = "ROCKTAKEY" },
+]
+keywords = [
+    "mypy",
+    "plugin",
+    "typing",
+    "setattr",
+    "dataclass",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Quality Assurance",
+    "Typing :: Typed",
+]
 dependencies = [
     "mypy>=1.18.2",
 ]
+
+[project.urls]
+Homepage = "https://github.com/ROCKTAKEY/mypy-setattr"
+Repository = "https://github.com/ROCKTAKEY/mypy-setattr"
+Issues = "https://github.com/ROCKTAKEY/mypy-setattr/issues"
+Changelog = "https://github.com/ROCKTAKEY/mypy-setattr/blob/main/CHANGELOG.md"
 
 [build-system]
 requires = ["uv_build>=0.10.2,<0.11.0"]
