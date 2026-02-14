@@ -158,14 +158,16 @@ wheels = [
 
 [[package]]
 name = "mypy-setattr"
-version = "0.0.0"
+version = "0.1.1"
 source = { editable = "." }
+dependencies = [
+    { name = "mypy" },
+]
 
 [package.dev-dependencies]
 dev = [
     { name = "basedpyright" },
     { name = "coverage" },
-    { name = "mypy" },
     { name = "pytest" },
     { name = "pytest-cov" },
     { name = "pytest-xdist" },
@@ -174,12 +176,12 @@ dev = [
 ]
 
 [package.metadata]
+requires-dist = [{ name = "mypy", specifier = ">=1.18.2" }]
 
 [package.metadata.requires-dev]
 dev = [
     { name = "basedpyright", specifier = ">=1.32.1" },
     { name = "coverage", extras = ["toml"], specifier = ">=7.11.0" },
-    { name = "mypy", specifier = ">=1.18.2" },
     { name = "pytest", specifier = ">=8.4.2" },
     { name = "pytest-cov", specifier = ">=7.0.0" },
     { name = "pytest-xdist", specifier = ">=3.8.0" },
